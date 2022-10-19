@@ -26,8 +26,9 @@ using namespace std;
 int main(){
 	srand(time(nullptr));
     TASK3::demoTask3();
+    std::cout << "Hallo";
     return 0;
-
+ //Joel
 
 }
 
