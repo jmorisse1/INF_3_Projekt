@@ -14,11 +14,6 @@
 
 namespace TASK1{
 
-string BlackBoxSafe::BalckBoxUnsafe(int pwdLength, int symbSetSize)
-{
-	
-}
-
 string BlackBoxUnsafe::getSymbols(){
 	return string(charSymbArray_);
 };
