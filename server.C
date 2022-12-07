@@ -18,6 +18,9 @@
 #include <netinet/in.h> //contains constants and structures needed for internet domain addresses
 
 #include "SIMPLESOCKET.H"
+#include "TASK1.H"
+
+using namespace TASK1;
 
 class myServer : public TCPserver
 {
@@ -25,9 +28,13 @@ public:
 	myServer(int port, int size) : TCPserver(port, size){ ; };
 	string myResponse(string input)
 	{
-		cout << "Hallooo" << endl;
-		return string("Test");
+		
+
+		return 0;
+
 	}
+private:
+	BlackBoxSafe *Password;
 };
 
 

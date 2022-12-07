@@ -39,6 +39,21 @@ string BlackBoxUnsafe::input(string strPwd){
 	return string("ACCESS DENIED");
 }
 
+BlackBoxSafe::BlackBoxSafe(int pwdLength, int symbSetSize) : BlackBoxUnsafe(pwdLength, symbSetSize){
+	pwd_ = sha256(pwd_);
+	return;
+}
+
+bool BlackBoxSafe::guess(string pwd){			// Temporäre test Fkt.
+
+	string hash;
+	hash = sha256(pwd);
+
+	if(hash ==pwd_){
+		return true;
+	}else return false;
+}
+
 string BlackBoxUnsafe::randomPwd(int l){
 	int symbolIdx;
 	if(l < MINIMAL_PWD_LENGTH){ l = MINIMAL_PWD_LENGTH;};
@@ -48,6 +63,11 @@ string BlackBoxUnsafe::randomPwd(int l){
 		pwd_ += charSymbArray_[symbolIdx];
 	}
 	return pwd_;
+}
+
+void BlackBoxSafe::Output(){			// Temporäre test Fkt.
+	cout << pwd_ << std::endl;
+	return;
 }
 
 void demoTASK1_00(){

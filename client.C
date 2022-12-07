@@ -10,8 +10,11 @@
 #include <unistd.h> //contains various constants
 
 #include "SIMPLESOCKET.H"
+#include "TASK1.H"
 
 using namespace std;
+
+std::string CrackPwd(int pwdLength, int symbSetSize);
 
 int main() {
 	srand(time(NULL));
@@ -24,8 +27,16 @@ int main() {
 
 	int i=0;
 	bool goOn=1;
+	int pwdLength, symbSetSize;
+	
+	std::cout << "PW Länge: ";
+	std::cin >> pwdLength;
+	std::cout << "symbSetSize: ";
+	std::cin >> symbSetSize;
+
+
 	while(goOn){ // send and receive data
-		if((rand() % 20) < i++){
+		/*if((rand() % 20) < i++){
 			msg = string("BYEBYE");
 			goOn = 0;
 		}else{
@@ -35,8 +46,9 @@ int main() {
 		c.sendData(msg);
 		msg = c.receive(32);
 		cout << "got response:" << msg << endl;
-		sleep(1);
+		sleep(1);*/
+		
+		/* msg = randomPwd(pwdLength);
+		c.sendData(msg); */
 	}
 }
-
-

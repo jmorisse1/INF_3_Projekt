@@ -103,9 +103,16 @@ protected:
  */
 class BlackBoxSafe : public BlackBoxUnsafe{
 	/// \todo  Implementation of class BlackBoxSafe needs to be finalized.
+private:
+	string pwd_;
+	char * charSymbArray_;
+	int lengthSymbArray_;
+	string randomPwd(int l);
 public:
-	BlackBoxSafe(int pwdLength, int symbSetSize) : BlackBoxUnsafe(pwdLength, symbSetSize){;};
+	BlackBoxSafe(int pwdLength, int symbSetSize);
 	virtual string input(string strPwd){return string("undefined");};
+	bool guess(string pwd); //Temporäre test Fkt.
+	void Output();	//Temporäre test Fkt.
 };
 
 
