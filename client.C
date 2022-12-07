@@ -24,16 +24,11 @@ int main() {
 
 	//connect to host
 	c.conn(host , 2022);
+	
+	
 
 	int i=0;
 	bool goOn=1;
-	int pwdLength, symbSetSize;
-	
-	std::cout << "PW Länge: ";
-	std::cin >> pwdLength;
-	std::cout << "symbSetSize: ";
-	std::cin >> symbSetSize;
-
 
 	while(goOn){ // send and receive data
 		/*if((rand() % 20) < i++){
@@ -50,5 +45,6 @@ int main() {
 		
 		/* msg = randomPwd(pwdLength);
 		c.sendData(msg); */
+		c.sendData("AAAA");
 	}
 }

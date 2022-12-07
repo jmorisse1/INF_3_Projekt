@@ -11,6 +11,7 @@
 #include <cerrno> //It defines macros for reporting and retrieving error conditions through error codes
 #include <ctime> //contains various functions for manipulating date and time
 
+
 #include <unistd.h> //contains various constants
 #include <sys/types.h> //contains a number of basic derived types that should be used whenever appropriate
 #include <arpa/inet.h> // defines in_addr structure
@@ -19,18 +20,35 @@
 
 #include "SIMPLESOCKET.H"
 #include "TASK1.H"
+#include "SHA256.H"
 
 using namespace TASK1;
 
 class myServer : public TCPserver
 {
 public:
-	myServer(int port, int size) : TCPserver(port, size){ ; };
-	string myResponse(string input)
-	{
+	myServer(int port, int size) : TCPserver(port, size){ 
 		
+		Password = new BlackBoxSafe(4,4);
+	};
+	string myResponse(string input)
+	{	
+		/*if(input == "<Neues PW - Befehl>"){
+			Password = new BlackBoxSafe(var1, var2); //var1 & var2 mit sstream und sscanf aus input auslesen
+		}else{...}*/
+		cout << input << endl;
+		
+		input = sha256(input);
+
+		cout << input << endl;
+
 
 		return 0;
+
+	}
+	void Start(string input)
+	{
+		
 
 	}
 private:
