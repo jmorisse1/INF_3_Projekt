@@ -36,27 +36,24 @@ public:
 		/*if(input == "<Neues PW - Befehl>"){
 			Password = new BlackBoxSafe(var1, var2); //var1 & var2 mit sstream und sscanf aus input auslesen
 		}else{...}*/
-		cout << input << endl;
-		
-		input = sha256(input);
-
-		cout << input << endl;
 		if(input.length() < 4){//if input string is shorter than the required minimum length of the password
 			return("Input too short!");
 		}
 		
-		int var1, var2;
+		int length, size;
 
-		std::string substr = input.substr(0,8); //Takes the first 8 characters from the string and stores them as a string in a substring
+		//std::string substring = input.substr(0,6); //Takes the first 8 characters from the string and stores them as a string in a substring
 		
-		if(substr == "{newPwd}"){
-			std::sscanf(input.c_str(), "{newPwd}(%i,%i)", &var1, &var2);
-			Password = new BlackBoxSafe(var1, var2); //var1 & var2 mit sstream und sscanf aus input auslesen
+		if(input.compare(0, 7,"newPwd(") == 0){
+			std::sscanf(input.c_str(), "newPwd(%i,%i)", &length, &size);
+			Password = new BlackBoxSafe(length, size); //var1 & var2 mit sstream und sscanf aus input auslesen
+			return string("new pwd created");
 		}else{
+			//return string("check pwd");
 			return Password->input(input);
-			}
+		}
 
-		return 0;
+		return string("unknown command");
 
 	}
 	void Start(string input)

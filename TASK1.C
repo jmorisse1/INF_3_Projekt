@@ -33,6 +33,7 @@ BlackBoxUnsafe::BlackBoxUnsafe(int pwdLength, int symbSetSize){
 }
 
 string BlackBoxUnsafe::input(string strPwd){
+	cout<<strPwd<<endl<<pwd_;
 	if(strPwd.compare(pwd_) == 0){
 		return string("ACCESS ACCEPTED");
 	}
@@ -42,6 +43,15 @@ string BlackBoxUnsafe::input(string strPwd){
 BlackBoxSafe::BlackBoxSafe(int pwdLength, int symbSetSize) : BlackBoxUnsafe(pwdLength, symbSetSize){
 	pwd_ = sha256(pwd_);
 	return;
+}
+
+std::string BlackBoxSafe::input(std::string strPwd){
+	strPwd = sha256(strPwd);
+	cout<<strPwd<<endl<<pwd_;
+	if(strPwd.compare(pwd_) == 0){
+		return string("ACCESS ACCEPTED");
+	}
+	return string("ACCESS DENIED");
 }
 
 bool BlackBoxSafe::guess(string pwd){			// Temporäre test Fkt.

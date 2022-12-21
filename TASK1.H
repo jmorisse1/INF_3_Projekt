@@ -110,7 +110,7 @@ private:
 	string randomPwd(int l);
 public:
 	BlackBoxSafe(int pwdLength, int symbSetSize);
-	virtual string input(string strPwd){return string("undefined");};
+	virtual string input(string strPwd);
 	bool guess(string pwd); //Temporäre test Fkt.
 	void Output();	//Temporäre test Fkt.
 };
