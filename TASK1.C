@@ -29,25 +29,24 @@ BlackBoxUnsafe::BlackBoxUnsafe(int pwdLength, int symbSetSize){
 	strncpy(charSymbArray_, SYMBOLS.c_str(), lengthSymbArray_);
 	// create and save random password
 	pwd_ = this->randomPwd(pwdLength);
-	return;
 }
 
 string BlackBoxUnsafe::input(string strPwd){
-	cout<<strPwd<<endl<<pwd_;
 	if(strPwd.compare(pwd_) == 0){
 		return string("ACCESS ACCEPTED");
 	}
 	return string("ACCESS DENIED");
 }
 
-BlackBoxSafe::BlackBoxSafe(int pwdLength, int symbSetSize) : BlackBoxUnsafe(pwdLength, symbSetSize){
+BlackBoxSafe::BlackBoxSafe(int pwdLength, int symbSetSize) : BlackBoxUnsafe(pwdLength,symbSetSize){
 	pwd_ = sha256(pwd_);
 	return;
 }
 
-std::string BlackBoxSafe::input(std::string strPwd){
-	strPwd = sha256(strPwd);
-	cout<<strPwd<<endl<<pwd_;
+std::string BlackBoxSafe::input(std::string strPwd)
+{
+	strPwd= sha256(strPwd.substr(0,strPwd.length()-2));		//Enter wird mit eingelesen, 2 Zeichen in Linux
+	cout<<strPwd<<endl<<pwd_<<endl;
 	if(strPwd.compare(pwd_) == 0){
 		return string("ACCESS ACCEPTED");
 	}

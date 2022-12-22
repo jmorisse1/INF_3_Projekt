@@ -52,7 +52,7 @@ const string SYMBOLS = "ABCDEFGHIJKLMNOPQRTSTUVWXYZabcdefghijklmopqrstuvwxyz0123
  * \brief Defines the minimal length of a password
  *
  */
-const unsigned int MINIMAL_PWD_LENGTH = 5; //Länge des PW
+const unsigned int MINIMAL_PWD_LENGTH = 3; //Länge des PW
 
 /**
  *
@@ -104,9 +104,8 @@ protected:
 class BlackBoxSafe : public BlackBoxUnsafe{
 	/// \todo  Implementation of class BlackBoxSafe needs to be finalized.
 private:
-	string pwd_;
-	char * charSymbArray_;
-	int lengthSymbArray_;
+	//char * charSymbArray_;
+	//int lengthSymbArray_;
 	string randomPwd(int l);
 public:
 	BlackBoxSafe(int pwdLength, int symbSetSize);
