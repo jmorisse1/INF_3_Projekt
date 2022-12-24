@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
+#include <unistd.h> 
 
 #include "TASK1.H"
 #include "SHA256.H"
@@ -45,22 +46,12 @@ BlackBoxSafe::BlackBoxSafe(int pwdLength, int symbSetSize) : BlackBoxUnsafe(pwdL
 
 std::string BlackBoxSafe::input(std::string strPwd)
 {
-	strPwd= sha256(strPwd.substr(0,strPwd.length()-2));		//Enter wird mit eingelesen, 2 Zeichen in Linux
+	strPwd= sha256(strPwd.substr(0,strPwd.length()));
 	cout<<strPwd<<endl<<pwd_<<endl;
 	if(strPwd.compare(pwd_) == 0){
 		return string("ACCESS ACCEPTED");
 	}
 	return string("ACCESS DENIED");
-}
-
-bool BlackBoxSafe::guess(string pwd){			// Temporäre test Fkt.
-
-	string hash;
-	hash = sha256(pwd);
-
-	if(hash ==pwd_){
-		return true;
-	}else return false;
 }
 
 string BlackBoxUnsafe::randomPwd(int l){
@@ -74,9 +65,27 @@ string BlackBoxUnsafe::randomPwd(int l){
 	return pwd_;
 }
 
-void BlackBoxSafe::Output(){			// Temporäre test Fkt.
-	cout << pwd_ << std::endl;
-	return;
+string BlackBoxSafe::nextPassword(string oldPassword, int symbSetSize, int currentPosition)
+{
+	if(currentPosition == oldPassword.length()-1)
+	{
+		return oldPassword;
+	}
+	char workChar = oldPassword[currentPosition];
+	if(workChar == SYMBOLS[symbSetSize-1]) 		//Overflow
+	{
+		workChar = SYMBOLS[0];
+		oldPassword[currentPosition] = workChar;
+		return nextPassword(oldPassword, symbSetSize, currentPosition+1);
+	}
+	int index;
+	for(int i = 0; i<SYMBOLS.length(); i++)			// Add one
+	{
+		if(workChar == SYMBOLS[i])
+			index = i+1;					
+	}
+ 	oldPassword[currentPosition] = SYMBOLS[index];
+	return oldPassword;
 }
 
 void demoTASK1_00(){
