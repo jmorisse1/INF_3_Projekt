@@ -46,8 +46,10 @@ public:
 		
 		if(input.compare(0, 7,"newPwd(") == 0){
 			std::sscanf(input.c_str(), "newPwd(%i,%i)", &length, &size);
+			delete Password;
 			Password = new BlackBoxSafe(length, size); //var1 & var2 mit sstream und sscanf aus input auslesen
 			return string("new pwd created");
+			//Fehler abfangen
 		}else{
 			//return string("check pwd");
 			return Password->input(input);
