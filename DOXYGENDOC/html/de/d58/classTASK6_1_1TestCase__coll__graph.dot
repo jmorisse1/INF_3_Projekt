@@ -1,0 +1,11 @@
+digraph "TASK6::TestCase"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="TASK6::TestCase",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Implementation of the class for defining a test case."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="TASK6::TestItem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$df/d22/classTASK6_1_1TestItem.html",tooltip="Implementation of the core functions for all derived classes of the unit test framework."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="TASK6::ITestItem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/dff/classTASK6_1_1ITestItem.html",tooltip="Interface class of unit testing classes. In general a test item conaitns either a a specific test or ..."];
+}

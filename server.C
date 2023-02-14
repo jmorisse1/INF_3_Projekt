@@ -4,6 +4,10 @@
  *  Created on: 11.09.2019
  *      Author: aml
  */
+
+/// @file
+/// @brief contains the implementation of the server
+
  #include <iostream>
 #include <cstdio> // standard input and output library
 #include <cstdlib> // this includes functions regarding memory allocation
@@ -23,7 +27,9 @@
 #include "SHA256.H"
 
 using namespace TASK1;
-
+///
+/// \class myServer
+/// \brief establishes connection between Server and Client, implements the communication protocoll
 class myServer : public TCPserver
 {
 public:
@@ -31,6 +37,9 @@ public:
 		
 		Password = new BlackBoxSafe(4,4);
 	};
+	/// @brief 
+	/// @param input string send by client
+	/// @return 
 	string myResponse(string input)
 	{	
 		/*if(input == "<Neues PW - Befehl>"){
@@ -39,23 +48,25 @@ public:
 		if(input.length() < 4){//if input string is shorter than the required minimum length of the password
 			return("Input too short!");
 		}
-		
+		///
+		/// @param length sets the length of the password
+		/// @param size dictates how many different characters from the const string SYMBOLS are being used 
+		///
 		int length, size;
 
 		//std::string substring = input.substr(0,6); //Takes the first 8 characters from the string and stores them as a string in a substring
 		
-		if(input.compare(0, 7,"newPwd(") == 0){
-			std::sscanf(input.c_str(), "newPwd(%i,%i)", &length, &size);
-			delete Password;
-			Password = new BlackBoxSafe(length, size); //var1 & var2 mit sstream und sscanf aus input auslesen
+		if(input.compare(0, 7,"newPwd(") == 0){ // input is compared
+			std::sscanf(input.c_str(), "newPwd(%i,%i)", &length, &size); //takes two integer variables from predefined string
+			delete Password; //Password is deleted in case there is still one in heap
+			Password = new BlackBoxSafe(length, size);
 			return string("new pwd created");
-			//Fehler abfangen
+			
 		}else{
-			//return string("check pwd");
-			return Password->input(input);
+			return Password->input(input); 
 		}
 
-		return string("unknown command");
+		return string("unknown command"); //default case 
 
 	}
 	void Start(string input)

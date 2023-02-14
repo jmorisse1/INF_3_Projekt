@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "server.C": "cpp",
+        "TASK1.C": "cpp",
+        "client.C": "cpp",
+        "SHA256.C": "cpp",
+        "main.C": "cpp",
+        "mainTest.C": "cpp"
+    }
+}

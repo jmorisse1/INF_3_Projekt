@@ -1,0 +1,19 @@
+digraph "TASK6::TestItem"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="TASK6::TestItem",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Implementation of the core functions for all derived classes of the unit test framework."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="TASK6::ITestItem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/dff/classTASK6_1_1ITestItem.html",tooltip="Interface class of unit testing classes. In general a test item conaitns either a a specific test or ..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="TASK6::TestCase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d3/d67/classTASK6_1_1TestCase.html",tooltip="Implementation of the class for defining a test case."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="InputTest_A",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d5/d48/classInputTest__A.html",tooltip=" "];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="InputTest_B",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$db/db3/classInputTest__B.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="TASK6::TestSuite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d7/d0f/classTASK6_1_1TestSuite.html",tooltip="This class implements a test suite for unit testing."];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="TASK6::UnitTest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/d9a/classTASK6_1_1UnitTest.html",tooltip="Implements the unit test class."];
+}

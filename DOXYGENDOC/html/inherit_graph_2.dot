@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="TASK6::Element\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/d02/classTASK6_1_1Element.html",tooltip="A template class definition. The class contains the value of the item and two references...."];
+}

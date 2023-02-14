@@ -39,11 +39,15 @@ string BlackBoxUnsafe::input(string strPwd){
 	return string("ACCESS DENIED");
 }
 
+/// @brief Sets the password member variable pwd_ to the password hash 
 BlackBoxSafe::BlackBoxSafe(int pwdLength, int symbSetSize) : BlackBoxUnsafe(pwdLength,symbSetSize){
 	pwd_ = sha256(pwd_);
 	return;
 }
 
+/// @brief compares the input to the saved password 
+/// @param strPwd 
+/// @return returns either "ACCESS ACCEPTED" if the PW hashes are identical or "ACCESS DENIED" if they are not
 std::string BlackBoxSafe::input(std::string strPwd)
 {
 	strPwd= sha256(strPwd.substr(0,strPwd.length()));
@@ -65,6 +69,7 @@ string BlackBoxUnsafe::randomPwd(int l){
 	return pwd_;
 }
 
+/// @brief redundand function 
 string BlackBoxSafe::nextPassword(string oldPassword, int symbSetSize, int currentPosition)
 {
 	if(currentPosition == oldPassword.length()-1)
